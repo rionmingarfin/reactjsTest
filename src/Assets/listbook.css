@@ -23,15 +23,6 @@
 
 .list-item {
   margin-top: 100px;
-  width: 75%;
-  position: relative;
-  left: 43%;
-  margin-right: 100px;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 .item {

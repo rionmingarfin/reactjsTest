@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../Assets/navbar.css';
 import { Link } from 'react-router-dom';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-
+import Product from './Product'
 
 class Navbar extends Component {
   constructor(props) {
@@ -25,6 +25,7 @@ class Navbar extends Component {
     // console.log("iduser",localStorage.id)
     // console.log("token",localStorage.jwToken)
     return ( 
+      <div>
       <div className="titleBar">
         <div style={{ paddingLeft: '100px', paddingTop: '10px' }}>
           <span style={{ color: 'white', fontSize: '30pt', fontWeight: 'bolder' }}>ELEVENIA</span>
@@ -41,6 +42,7 @@ class Navbar extends Component {
             (<Link to="/user/login"><span style={{ color: 'white', fontSize: '20pt', fontWeight: 'bolder', float: 'right', marginRight: '100px', marginTop: '10px' }}>LOGIN</span></Link>)
           }
         </div>
+      </div>
       </div>
     );
   }

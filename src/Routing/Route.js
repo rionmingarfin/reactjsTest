@@ -4,6 +4,8 @@ import Login from '../Component/login'
 import register from '../Component/Register'
 import Navbar from '../Component/Navbar'
 import Logout from '../Component/logout'
+import product from '../Component/Product'
+import Detail from '../Component/detail'
 
 class Routing extends Component {
     render () {
@@ -12,6 +14,8 @@ class Routing extends Component {
         <Router>
         <Redirect to="/product" />
         <Route exact path={"/product"} component={Navbar} />
+        <Route exact path={"/product"} component={product} />
+        <Route path={"/product/:id"} component={Detail} />
         <Route exact path={"/user/login"} component={Login} />
         <Route exact path={"/user/register"} component={register} />
         <Route exact path={"/user/logout"} component={Logout} />
