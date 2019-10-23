@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../Assets/navbar.css';
 import { Link } from 'react-router-dom';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import Product from './Product'
 
 class Navbar extends Component {
   constructor(props) {
@@ -24,6 +23,7 @@ class Navbar extends Component {
     // console.log("username",localStorage.username)
     // console.log("iduser",localStorage.id)
     // console.log("token",localStorage.jwToken)
+    // console.log("token",localStorage.status)
     return ( 
       <div>
       <div className="titleBar">
@@ -37,6 +37,10 @@ class Navbar extends Component {
               </DropdownToggle>
               <DropdownMenu>
                 <Link to="/user/logout"><DropdownItem>Logout</DropdownItem></Link>
+                {localStorage.status == 1 ?
+                  (<Link to="/user/member"><DropdownItem>Member List</DropdownItem></Link>) : ('')}
+                {localStorage.status == 1 ?
+                  (<Link to={`/profile/${localStorage.id}`}><DropdownItem>profile</DropdownItem></Link>) : ('')}
               </DropdownMenu>
             </ButtonDropdown>) :
             (<Link to="/user/login"><span style={{ color: 'white', fontSize: '20pt', fontWeight: 'bolder', float: 'right', marginRight: '100px', marginTop: '10px' }}>LOGIN</span></Link>)

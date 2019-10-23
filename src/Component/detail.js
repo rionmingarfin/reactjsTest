@@ -1,42 +1,66 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import '../Assets/detailbook.css';
+import '../Assets/detailproduct.css';
 import { Link } from 'react-router-dom';
-import Navbar from '../Component/Navbar'
+import swal from 'sweetalert';
 
-import {getProductid} from '../Publics/redux/actions/product';
-
+import {getProductid,deleteProduct} from '../Publics/redux/actions/product';
 
 class Detail extends Component {
     state = {
         index: '',
+        products : []
       };
       componentDidMount = async() => {
-       await this.props.dispatch(getProductid(this.props.match.params.id))
+        const idproducts = this.props.match.params.id
+       await this.props.dispatch(getProductid(idproducts))
+       this.setState({
+         products : this.props.product
+       })
       }
-
+      delete = async ()=>{
+        await this.props.dispatch(deleteProduct(this.props.match.params.id))
+        .then(() => {
+          swal({
+              title: "Success",
+              text: "hapus Successfully",
+              icon: "success",
+              button: "OK"
+          }).then(() => {
+              window.location.href = '/product';
+          })
+      })
+      .catch(() => {
+          swal({
+              title: "Failed",
+              text: "delete Failed !!!",
+              icon: "warning",
+              buttons: "OK"
+          })
+      })		
+      }
   render() {
-    //   console.log("idproduct",this.props.match.params.id)
+      console.log("idproduct",this.props.match.params.id)
     //   console.log("data",this.props.product.productList)
+    const {products} = this.state;
+    let list = products.productList;
+    console.log("list",list);
     return (
       <div>  
-          {this.props.product.productList.map(item =>  {
-                      return (
-                        //  <div className="book-detail">
-                        //       <div>
-                        //          <ul>
-                        //             <li><Link to="/product" className="back">BACK</Link></li>
-                        //          </ul>
-                        //             <img className='Gambar1' src={item.image} alt="gambar" />
-                        //       </div>
-                        //       <div className="content">
-                        //             <p className='title'>{(item.name)}</p>
-                        //             <p>{(item.description)}</p>
-                        //             <p>stok :{(item.stok)}</p>
-                        //             <p>price :{(item.price)}</p>
-                        //       </div>
-                        //   </div>
-                        <div className="container-fluid">
+          {list &&
+            list.length > 0 &&
+            list.map(item =>  {
+            return (
+              <div className="container-fluid">
+                  <ul>
+                      {/* {console.log("item detail",item.id)}
+                      {console.log("item detail",item)} */}
+                      <li><Link to="/product" className="back">BACK</Link></li>
+                      {/* {localStorage.status == 1  ?
+                      (<li className="buttonDel" ><Link to={`/product/${item.id_product}/edit`}>Edit</Link></li>) : ('')} */}
+                      {localStorage.status == 1 ?
+                        (<li className="buttonDel" ><Link to={'/product'} onClick={this.delete.bind(this)}>Delete</Link></li>): ('')}
+                  </ul>
       <div className="row">
           <div className="col-9">
             <div className="card" style={{ width: "100%", height: "100%" }}>

@@ -8,6 +8,7 @@ class Logout extends Component {
         localStorage.removeItem('jwToken')
         localStorage.removeItem('id')
         localStorage.removeItem('username')
+        localStorage.removeItem('status')
     }
     render() {
 

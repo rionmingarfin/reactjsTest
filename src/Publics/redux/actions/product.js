@@ -11,8 +11,6 @@ export const getProduct = () => {
     }
 }
 
-
-
 export const getProductid = (idProduct) => {
     return {
         type: 'GET_PRODUCTID', idProduct,
@@ -20,36 +18,36 @@ export const getProductid = (idProduct) => {
     }
 }
 
-export const postPRODUCT = (data) => {
+export const postProduct = (data) => {
     console.log(data.description)
     return {
         type: 'POST_PRODUCT',
-        payload: axios.post(`${url}/PRODUCT`, data, {
+        payload: axios.post(`${url}/api/v3/product`, data, {
             headers: {
-                "authorization": "x-control-app",
+                "x-auth-token": localStorage.jwToken,
             }
         })
     }
 }
 
-export const editPRODUCT = (data, idPRODUCT) => {
+export const editProduct = (data, idProduct) => {
     console.log(data.description)
     return {
         type: 'EDIT_PRODUCT',
-        payload: axios.patch(`${url}/PRODUCT/${idPRODUCT}`, data, {
+        payload: axios.patch(`${url}/api/v3/product/${idProduct}`, data, {
             headers: {
-                "authorization": "x-control-app",
+                "x-auth-token": localStorage.jwToken,
             }
         }),
     }
 }
 
-export const deletePRODUCT = (idPRODUCT) => {
+export const deleteProduct = (id) => {
     return {
         type: 'DELETE_PRODUCT',
-        payload: axios.delete(`${url}/${idPRODUCT}`, {
+        payload: axios.delete(`${url}/api/v3/product/${id}`, {
             headers: {
-                "authorization": "x-control-app",
+                "x-auth-token": localStorage.jwToken,
             }
         }),
     };

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import '../Assets/listbook.css';
+import '../Assets/listproduct.css';
 import { Link } from 'react-router-dom';
-// import Add from './add'
+import Add from './Add'
 
 import { getProduct} from '../Publics/redux/actions/product';
 
@@ -18,7 +18,11 @@ class Product extends Component {
     //  console.log("product",JSON.stringify(this.props.product.productList))
     return (
       <div>
-        {/* <Add /> */}
+        {/* {console.log("localstrorage",localStorage.status)}
+        {console.log("localstrorage",localStorage.username)}
+        {console.log("localstrorage",localStorage.jwToken)}
+        {console.log("localstrorage",localStorage.id)} */}
+        {localStorage.status == 1 ? (<Add />) : (' ')}
         <div className ="list-item">
           <ul>
             {this.props.product.productList.map((item, index) => {
