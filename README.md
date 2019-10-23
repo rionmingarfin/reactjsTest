@@ -8,7 +8,7 @@
 
 ## GETING STARTED
 <br>
-To start this application, please Elevenia backend clone, this application consists of, login, register, product and product details
+To start this application, please Elevenia backend clone, this application consists of, login,CRUD, register, product and product details
 
 ## software preparation needed
 
@@ -20,6 +20,9 @@ To start this application, please Elevenia backend clone, this application consi
 * open terminal and run npm install
 * yarn start
 
+### noted
+only admin can CRUD
+
 ## screnshot application
 <p align='center'>
   <span>
@@ -27,5 +30,7 @@ To start this application, please Elevenia backend clone, this application consi
    <img src='https://user-images.githubusercontent.com/43402837/67021909-914a5900-f12a-11e9-82e3-348f118ed94b.png' width=200/>
    <img src='https://user-images.githubusercontent.com/43402837/67021971-aa530a00-f12a-11e9-9f2c-5b60bd25cf45.png' width=200/>
    <img src='https://user-images.githubusercontent.com/43402837/67022022-bc34ad00-f12a-11e9-8ef8-e08d6278a9d0.png' width=200/>
+   <img src='https://github.com/rionmingarfin/reactjsTest/blob/master/picture/adddData.png' width=200/>
+   <img src='https://github.com/rionmingarfin/reactjsTest/blob/master/picture/listUser.png' width=200/>
   </span>
 </p>
